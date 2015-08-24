@@ -1,7 +1,64 @@
-<fragment xmlns:android="http://schemas.android.com/apk/res/android"
-          xmlns:tools="http://schemas.android.com/tools"
-          android:id="@+id/fragment"
-          android:name="com.hv.ottosample.MainActivityFragment"
-          tools:layout="@layout/fragment_main"
-          android:layout_width="match_parent"
-          android:layout_height="match_parent"/>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+
+	<android.support.v4.widget.DrawerLayout
+		android:id="@+id/drawer_layout"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:background="#FF000000">
+
+		<com.sothree.slidinguppanel.SlidingUpPanelLayout
+			android:id="@+id/sliding_layout"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:gravity="bottom"
+			app:umanoPanelHeight="?attr/actionBarSize"
+			app:umanoShadowHeight="0dp"
+			app:umanoOverlay="true">
+
+			<LinearLayout
+				android:id="@+id/mainFragmentContener"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:orientation="vertical"
+				android:paddingBottom="?attr/actionBarSize">
+
+				<android.support.v4.view.ViewPager
+					android:id="@+id/pager"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"/>
+
+			</LinearLayout>
+
+			<FrameLayout
+				android:id="@+id/slidingFragmentContener"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:background="#FFFFFFFF">
+
+				<fragment
+					android:id="@+id/player_fragment"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:name="com.hv.ottosample.MainActivityFragment"
+					tools:layout="@layout/fragment_main"/>
+
+			</FrameLayout>
+
+		</com.sothree.slidinguppanel.SlidingUpPanelLayout>
+
+		<RelativeLayout
+			android:layout_width="250dp"
+			android:layout_height="match_parent"
+			android:background="#FFFFFFFF"
+			android:layout_gravity="start"
+			android:clickable="true">
+
+		</RelativeLayout>
+	</android.support.v4.widget.DrawerLayout>
+
+</LinearLayout>
